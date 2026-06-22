@@ -1,0 +1,15 @@
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.AssemblyInfoInputs.cache
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.AssemblyInfo.cs
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.csproj.CoreCompileInputs.cache
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.sourcelink.json
+E:\Projetos\stock-shop-poo\bin\Debug\net10.0\StockShop.exe
+E:\Projetos\stock-shop-poo\bin\Debug\net10.0\StockShop.deps.json
+E:\Projetos\stock-shop-poo\bin\Debug\net10.0\StockShop.runtimeconfig.json
+E:\Projetos\stock-shop-poo\bin\Debug\net10.0\StockShop.dll
+E:\Projetos\stock-shop-poo\bin\Debug\net10.0\StockShop.pdb
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.dll
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\refint\StockShop.dll
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.pdb
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\StockShop.genruntimeconfig.cache
+E:\Projetos\stock-shop-poo\obj\Debug\net10.0\ref\StockShop.dll
