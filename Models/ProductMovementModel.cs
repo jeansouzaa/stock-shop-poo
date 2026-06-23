@@ -47,4 +47,10 @@ internal class ProductMovementModel
         get { return _product; }
         set { _product = value; }
     }
+
+    public TypeMovement TypeMovement
+    {
+        get { return _typeMovement; }
+        set { _typeMovement = value; }
+    }
 }

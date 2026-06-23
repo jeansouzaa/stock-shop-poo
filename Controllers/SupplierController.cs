@@ -20,7 +20,6 @@ internal class SupplierController : MainController
         new SupplierModel(1, "52.518.679/0001-09", "Art&Office", "(47)99999-9999", new List<ProductModel>())
     };
     private SupplierModel _model;
-    private SupplierView _screen = new SupplierView();
 
     public SupplierController(int column, int row, SupplierView screen) : base(column, row, screen)
     {

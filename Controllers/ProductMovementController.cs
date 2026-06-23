@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using StockShop.Controllers.Base;
 using StockShop.Models;
 using StockShop.Models.Enums;
-using StockShop.Views.Base;
 using StockShop.Views;
-using StockShop.Controllers.Base;
+using StockShop.Views.Base;
 
 namespace StockShop.Controllers;
 
@@ -13,7 +13,8 @@ internal class ProductMovementController : MainController
     private const int CodeFieldRowOffset = 2;
     private const int DateFieldRowOffset = 3;
     private const int QtyFieldRowOffset = 4;
-    private const int ProductFieldRowOffset = 5;
+    private const int TypeFieldRowOffset = 5;
+    private const int ProductFieldRowOffset = 6;
 
     private ProductMovementModel _model;
     private static List<ProductMovementModel> _productMovements = new List<ProductMovementModel>();
@@ -74,22 +75,39 @@ internal class ProductMovementController : MainController
 
             int inputQty;
             ProductModel product = null;
+            TypeMovement typeMovement;
 
             while (true)
             {
                 row = this._row + QtyFieldRowOffset;
                 inputQty = ReadInt(column, row, "Quantidade inválida! Digite um número inteiro.");
+                row = this._row + TypeFieldRowOffset;
+                Console.SetCursorPosition(column, row);
+                while (true)
+                {
+                    string input = Console.ReadLine() ?? "";
+                    int catIndex;
+                    if (int.TryParse(input, out catIndex) && Enum.IsDefined(typeof(TypeMovement), catIndex))
+                    {
+                        typeMovement = (TypeMovement)catIndex;
+                        break;
+                    }
+                    int errorLine = this._row + this._heigth + 1;
+                    this._screen.ClearArea(this._column, errorLine, this._column + this._width, errorLine);
+                    this._screen.Centralize(this._column, this._column + this._width, errorLine, "Tipo inválido! Digite 0 para Entrada e 1 para Saída.");
+                    this._screen.ClearArea(column, row, this._column + this._width - 2, row);
+                    Console.SetCursorPosition(column, row);
+                }
+
+                int finalErrorLine = this._row + this._heigth + 1;
+                this._screen.ClearArea(this._column, finalErrorLine, this._column + this._width, finalErrorLine);
 
                 row = this._row + ProductFieldRowOffset;
                 while (true)
                 {
-                    try
-                    {
-                        Console.SetCursorPosition(column, row);
-                    }
-                    catch (System.IO.IOException) { }
+                    Console.SetCursorPosition(column, row);
                     string input = Console.ReadLine() ?? "";
-                    
+
                     product = this._productController.findProductByCode(input);
                     if (product != null)
                     {
@@ -100,10 +118,10 @@ internal class ProductMovementController : MainController
                     this._screen.ClearArea(this._column, errorLine, this._column + this._width + 25, errorLine + 2);
                     this._screen.Centralize(this._column, this._column + this._width, errorLine, "Produto não cadastrado!");
                     this._screen.Centralize(this._column, this._column + this._width, errorLine + 1, "1-Cadastrar Novo | 2-Listar Produtos | 3-Cancelar Operação: ");
-                    
+
                     string option = Console.ReadLine() ?? "";
                     this._screen.ClearArea(this._column, errorLine, this._column + this._width + 25, errorLine + 2);
-                    
+
                     switch (option)
                     {
                         case "1":
@@ -121,11 +139,7 @@ internal class ProductMovementController : MainController
                     }
 
                     this._screen.ClearArea(column, row, this._column + this._width - 2, row);
-                    try
-                    {
-                        Console.SetCursorPosition(column, row);
-                    }
-                    catch (System.IO.IOException) { }
+                    Console.SetCursorPosition(column, row);
                 }
 
                 if (product.QtyStock >= inputQty)
@@ -139,33 +153,8 @@ internal class ProductMovementController : MainController
 
                 this._screen.ClearArea(column, this._row + QtyFieldRowOffset, this._column + this._width - 2, this._row + QtyFieldRowOffset);
                 this._screen.ClearArea(column, this._row + ProductFieldRowOffset, this._column + this._width - 2, this._row + ProductFieldRowOffset);
-                TypeMovement typeMovement;
-                while (true)
-                {
-                    string input = Console.ReadLine() ?? "";
-                    int catIndex;
-                    if (int.TryParse(input, out catIndex) && Enum.IsDefined(typeof(TypeMovement), catIndex))
-                    {
-                        typeMovement = (TypeMovement)catIndex;
-                        break;
-                    }
-                    int errorLine = this._row + this._heigth + 1;
-                    this._screen.ClearArea(this._column, errorLine, this._column + this._width, errorLine);
-                    this._screen.Centralize(this._column, this._column + this._width, errorLine, "Tipo inválido! Digite 0 para Entrada e 1 para Saída.");
-                    this._screen.ClearArea(column, row, this._column + this._width - 2, row);
-                    try
-                    {
-                        Console.SetCursorPosition(column, row);
-                    }
-                    catch (System.IO.IOException) { }
-                }
-                
-                int finalErrorLine = this._row + this._heigth + 1;
-                this._screen.ClearArea(this._column, finalErrorLine, this._column + this._width, finalErrorLine);
-
-                this._model.TypeMovement = typeMovement;
             }
-
+            this._model.TypeMovement = typeMovement;
             this._model.QtyMovemented = inputQty;
             this._model.Product = product;
         }
@@ -236,7 +225,7 @@ internal class ProductMovementController : MainController
                     response = this._screen.ToAsk("Confirma alteração (S/N): ", line, startColumn, endColumn);
                     if (response == "s" || response == "S")
                     {
-                        if(this._model.TypeMovement == TypeMovement.Saida)
+                        if (this._model.TypeMovement == TypeMovement.Saida)
                         {
                             this._model.Product.QtyStock -= this._model.QtyMovemented;
                         }
@@ -287,7 +276,7 @@ internal class ProductMovementController : MainController
 
                         _productMovements.Add(
                             new ProductMovementModel(this._model.Code, this._model.MovementDate,
-                                this._model.QtyMovemented, this._model.Product)
+                                this._model.QtyMovemented, this._model.TypeMovement, this._model.Product)
                         );
                     }
                 }
@@ -301,7 +290,7 @@ internal class ProductMovementController : MainController
     internal void ReportMovementedProduct()
     {
         this._screen.PrepareMainView("Relatórios de Produtos Movimentados", 0, 0, 79, 24);
-        
+
         int row = 3;
         this._screen.WriteFrame(2, row, "Código | Data       | Qtd | Descrição do Produto");
         this._screen.WriteFrame(2, row + 1, "------------------------------------------------------------------------------");
@@ -342,7 +331,7 @@ internal class ProductMovementController : MainController
                 row++;
             }
         }
-        
+
         this._screen.WriteFrame(2, row + 1, "Pressione qualquer tecla para voltar ao menu...");
         try
         {

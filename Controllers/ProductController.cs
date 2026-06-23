@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using StockShop.Models;
-using StockShop.Views.Base;
-using StockShop.Views;
 using StockShop.Controllers.Base;
+using StockShop.Models;
+using StockShop.Models.Enums;
+using StockShop.Views;
+using StockShop.Views.Base;
 
 namespace StockShop.Controllers;
 
@@ -98,19 +99,11 @@ internal class ProductController : MainController
 
             this._screen.ClearArea(column, row, this._column + this._width - 2, row + this._heigth - 5);
 
-            try
-            {
-                Console.SetCursorPosition(column, row);
-            }
-            catch (System.IO.IOException) { }
+            Console.SetCursorPosition(column, row);
             this._model.Description = Console.ReadLine();
 
             row = this._row + CategoryFieldRowOffset;
-            try
-            {
-                Console.SetCursorPosition(column, row);
-            }
-            catch (System.IO.IOException) { }
+            Console.SetCursorPosition(column, row);
 
             ProductCategory category;
             while (true)
@@ -126,13 +119,9 @@ internal class ProductController : MainController
                 this._screen.ClearArea(this._column, errorLine, this._column + this._width, errorLine);
                 this._screen.Centralize(this._column, this._column + this._width, errorLine, "Categoria inválida! Digite de 0 a 5.");
                 this._screen.ClearArea(column, row, this._column + this._width - 2, row);
-                try
-                {
-                    Console.SetCursorPosition(column, row);
-                }
-                catch (System.IO.IOException) { }
+                Console.SetCursorPosition(column, row);
             }
-            
+
             int finalErrorLine = this._row + this._heigth + 1;
             this._screen.ClearArea(this._column, finalErrorLine, this._column + this._width, finalErrorLine);
 
@@ -145,12 +134,8 @@ internal class ProductController : MainController
             this._model.UnitaryPrice = ReadDouble(column, row, "Preço inválido! Digite um valor numérico decimal.");
 
             row = this._row + SupplierFieldRowOffset;
-            try
-            {
-                Console.SetCursorPosition(column, row);
-            }
-            catch (System.IO.IOException) { }
-            
+            Console.SetCursorPosition(column, row);
+
             SupplierModel supplier = null;
             while (true)
             {
@@ -169,10 +154,10 @@ internal class ProductController : MainController
                 this._screen.ClearArea(this._column, errorLine, this._column + this._width + 25, errorLine + 2);
                 this._screen.Centralize(this._column, this._column + this._width, errorLine, "Fornecedor não cadastrado!");
                 this._screen.Centralize(this._column, this._column + this._width, errorLine + 1, "1-Cadastrar Novo | 2-Tentar Novamente | 3-Listar Fornecedores: ");
-                
+
                 string option = Console.ReadLine() ?? "";
-                this._screen.ClearArea(this._column, errorLine, this._column + this._width + 25, errorLine + 2);
-                switch(option)
+                this._screen.ClearArea(this._column - 3, errorLine, this._column + this._width + 25, errorLine + 2);
+                switch (option)
                 {
                     case "1":
                         this._supplierController.CRUD();
@@ -188,11 +173,7 @@ internal class ProductController : MainController
 
                 this._screen.ClearArea(this._column, errorLine, this._column + this._width + 25, errorLine + 2);
                 this._screen.ClearArea(column, row, this._column + this._width - 2, row);
-                try
-                {
-                    Console.SetCursorPosition(column, row);
-                }
-                catch (System.IO.IOException) { }
+                Console.SetCursorPosition(column, row);
             }
             this._model.Supplier = supplier;
         }
@@ -294,7 +275,7 @@ internal class ProductController : MainController
     internal void ReportRegisteredProducts()
     {
         this._screen.PrepareMainView("Relatório de Produtos Cadastrados", 0, 0, 79, 24);
-        
+
         int row = 3;
         this._screen.WriteFrame(2, row, "Código | Descrição           | Categoria     | Preço    | Estoque | Fornecedor");
         this._screen.WriteFrame(2, row + 1, "------------------------------------------------------------------------------");
@@ -333,7 +314,7 @@ internal class ProductController : MainController
                 row++;
             }
         }
-        
+
         this._screen.WriteFrame(2, row + 1, "Pressione qualquer tecla para voltar ao menu...");
         try
         {
