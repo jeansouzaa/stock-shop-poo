@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using StockShop.Models.Enums;
 
 namespace StockShop.Models;
 
@@ -9,13 +10,15 @@ internal class ProductMovementModel
     private long _code;
     private DateTime _movementDate;
     private int _qtyMovemented;
+    private TypeMovement _typeMovement;
     private ProductModel _product;
 
-    public ProductMovementModel(long code, DateTime movementDate, int qtyMovemented,  ProductModel product)
+    public ProductMovementModel(long code, DateTime movementDate, int qtyMovemented, TypeMovement typeMovement, ProductModel product)
     {
         this._code = code;
         this._movementDate = movementDate;
         this._qtyMovemented = qtyMovemented;
+        this._typeMovement = typeMovement;
         this._product = product;
     }
 

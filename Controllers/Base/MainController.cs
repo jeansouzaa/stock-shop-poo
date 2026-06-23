@@ -4,7 +4,7 @@ using StockShop.Views.Base;
 
 namespace StockShop.Controllers.Base;
 
-internal abstract class BaseController
+internal abstract class MainController
 {
     protected int _column;
     protected int _row;
@@ -14,7 +14,7 @@ internal abstract class BaseController
     protected MainView _screen;
     protected List<string> _fields;
 
-    protected BaseController(int column, int row, MainView screen)
+    protected MainController(int column, int row, MainView screen)
     {
         _column = column;
         _row = row;
@@ -22,7 +22,7 @@ internal abstract class BaseController
         _fields = new List<string>();
     }
 
-    protected BaseController()
+    protected MainController()
     {
         _screen = new MainView();
         _fields = new List<string>();

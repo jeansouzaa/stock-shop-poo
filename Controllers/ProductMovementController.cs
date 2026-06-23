@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using StockShop.Models;
+using StockShop.Models.Enums;
 using StockShop.Views.Base;
 using StockShop.Views;
 using StockShop.Controllers.Base;
 
 namespace StockShop.Controllers;
 
-internal class ProductMovementController : BaseController
+internal class ProductMovementController : MainController
 {
     private const int CodeFieldRowOffset = 2;
     private const int DateFieldRowOffset = 3;
@@ -26,6 +27,7 @@ internal class ProductMovementController : BaseController
         this._fields.Add("Código                 : ");
         this._fields.Add("Data da Movimentação   : ");
         this._fields.Add("Quantidade Movimentada : ");
+        this._fields.Add("Tipo de Movimentação   : ");
         this._fields.Add("Código do Produto      : ");
 
         this._width = this._fields[0].Length + 2 + 30;
@@ -137,6 +139,31 @@ internal class ProductMovementController : BaseController
 
                 this._screen.ClearArea(column, this._row + QtyFieldRowOffset, this._column + this._width - 2, this._row + QtyFieldRowOffset);
                 this._screen.ClearArea(column, this._row + ProductFieldRowOffset, this._column + this._width - 2, this._row + ProductFieldRowOffset);
+                TypeMovement typeMovement;
+                while (true)
+                {
+                    string input = Console.ReadLine() ?? "";
+                    int catIndex;
+                    if (int.TryParse(input, out catIndex) && Enum.IsDefined(typeof(TypeMovement), catIndex))
+                    {
+                        typeMovement = (TypeMovement)catIndex;
+                        break;
+                    }
+                    int errorLine = this._row + this._heigth + 1;
+                    this._screen.ClearArea(this._column, errorLine, this._column + this._width, errorLine);
+                    this._screen.Centralize(this._column, this._column + this._width, errorLine, "Tipo inválido! Digite 0 para Entrada e 1 para Saída.");
+                    this._screen.ClearArea(column, row, this._column + this._width - 2, row);
+                    try
+                    {
+                        Console.SetCursorPosition(column, row);
+                    }
+                    catch (System.IO.IOException) { }
+                }
+                
+                int finalErrorLine = this._row + this._heigth + 1;
+                this._screen.ClearArea(this._column, finalErrorLine, this._column + this._width, finalErrorLine);
+
+                this._model.TypeMovement = typeMovement;
             }
 
             this._model.QtyMovemented = inputQty;
@@ -151,6 +178,8 @@ internal class ProductMovementController : BaseController
         this._screen.WriteFrame(column, this._row + CodeFieldRowOffset, this._model.Code.ToString());
         this._screen.WriteFrame(column, this._row + DateFieldRowOffset, this._model.MovementDate.ToString("yyyy-MM-dd"));
         this._screen.WriteFrame(column, this._row + QtyFieldRowOffset, this._model.QtyMovemented.ToString());
+        this._screen.WriteFrame(column, this._row + TypeFieldRowOffset, this._model.TypeMovement.ToString());
+        this._screen.WriteFrame(column, this._row + ProductFieldRowOffset, this._model.Product.Code.ToString());
     }
 
     public void ShowData()
@@ -159,6 +188,7 @@ internal class ProductMovementController : BaseController
 
         this._screen.WriteFrame(column, this._row + DateFieldRowOffset, _productMovements[this._position].MovementDate.ToString("yyyy-MM-dd"));
         this._screen.WriteFrame(column, this._row + QtyFieldRowOffset, _productMovements[this._position].QtyMovemented.ToString());
+        this._screen.WriteFrame(column, this._row + TypeFieldRowOffset, _productMovements[this._position].TypeMovement.ToString());
         string productCodeStr = _productMovements[this._position].Product != null ? _productMovements[this._position].Product.Code.ToString() : "N/A";
         this._screen.WriteFrame(column, this._row + ProductFieldRowOffset, productCodeStr);
     }
@@ -206,10 +236,18 @@ internal class ProductMovementController : BaseController
                     response = this._screen.ToAsk("Confirma alteração (S/N): ", line, startColumn, endColumn);
                     if (response == "s" || response == "S")
                     {
-                        this._model.Product.QtyStock -= this._model.QtyMovemented;
+                        if(this._model.TypeMovement == TypeMovement.Saida)
+                        {
+                            this._model.Product.QtyStock -= this._model.QtyMovemented;
+                        }
+                        else
+                        {
+                            this._model.Product.QtyStock += this._model.QtyMovemented;
+                        }
 
                         _productMovements[this._position].MovementDate = this._model.MovementDate;
                         _productMovements[this._position].QtyMovemented = this._model.QtyMovemented;
+                        _productMovements[this._position].TypeMovement = this._model.TypeMovement;
                         _productMovements[this._position].Product = this._model.Product;
                     }
                     else
@@ -276,8 +314,9 @@ internal class ProductMovementController : BaseController
         }
         else
         {
-            foreach (var movement in _productMovements)
+            for (int count = 0; count < _productMovements.Count; count++)
             {
+                ProductMovementModel movement = _productMovements[count];
                 if (row >= 22)
                 {
                     this._screen.WriteFrame(2, row, "Pressione qualquer tecla para mostrar mais...");
@@ -298,7 +337,7 @@ internal class ProductMovementController : BaseController
 
                 string productDesc = movement.Product != null ? movement.Product.Description : "N/A";
                 string dateStr = movement.MovementDate.ToString("yyyy-MM-dd");
-                string line = $"{movement.Code,-4} | {dateStr,-10} | {movement.QtyMovemented,-3} | {productDesc}";
+                string line = $"{movement.Code,-4} | {dateStr,-10} | {movement.QtyMovemented,-3} | {movement.TypeMovement,-10} | {productDesc}";
                 this._screen.WriteFrame(2, row, line);
                 row++;
             }

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockShop.Models;
+namespace StockShop.Models.Enums;
 
 internal enum ProductCategory
 {
-    Material_Escolar,
-    Material_Escritorio,
+    Escolar,
+    Escritorio,
     Presentes,
     Brinquedos,
     Artesanato,

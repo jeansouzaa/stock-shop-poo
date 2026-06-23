@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\productmovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:productmovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\suppliermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:suppliermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\productcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:productcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\productmovementmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:productmovementmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|c:\\users\\jean.souza\\documents\\exercicios\\faculdade\\poo\\projetos\\stockshop\\screen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BBE108-246A-04E1-E434-535E7DBDC856}|StockShop.csproj|solutionrelative:screen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SupplierModel.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\SupplierModel.cs",
+              "RelativeDocumentMoniker": "SupplierModel.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\SupplierModel.cs",
+              "RelativeToolTip": "SupplierModel.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAkAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T23:52:53.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductMovementController.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductMovementController.cs",
+              "RelativeDocumentMoniker": "ProductMovementController.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductMovementController.cs",
+              "RelativeToolTip": "ProductMovementController.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAiwJMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:38:10.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductController.cs",
+              "RelativeDocumentMoniker": "ProductController.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductController.cs",
+              "RelativeToolTip": "ProductController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAUwKcAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:38:17.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductModel.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductModel.cs",
+              "RelativeDocumentMoniker": "ProductModel.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductModel.cs",
+              "RelativeToolTip": "ProductModel.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAADwvw8AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:09:01.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SupplierController.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\SupplierController.cs",
+              "RelativeDocumentMoniker": "SupplierController.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\SupplierController.cs",
+              "RelativeToolTip": "SupplierController.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAuwI0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:38:00.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductCategory.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductCategory.cs",
+              "RelativeDocumentMoniker": "ProductCategory.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductCategory.cs",
+              "RelativeToolTip": "ProductCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T22:28:15.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:00:28.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductMovementModel.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductMovementModel.cs",
+              "RelativeDocumentMoniker": "ProductMovementModel.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\ProductMovementModel.cs",
+              "RelativeToolTip": "ProductMovementModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T22:41:44.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Screen.cs",
+              "DocumentMoniker": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\Screen.cs",
+              "RelativeDocumentMoniker": "Screen.cs",
+              "ToolTip": "C:\\Users\\jean.souza\\Documents\\Exercicios\\Faculdade\\POO\\Projetos\\StockShop\\Screen.cs",
+              "RelativeToolTip": "Screen.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAwFMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T20:25:57.037Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ using StockShop.Controllers.Base;
 
 namespace StockShop.Controllers;
 
-internal class SupplierController : BaseController
+internal class SupplierController : MainController
 {
     private const int CodeFieldRowOffset = 2;
     private const int CnpjFieldRowOffset = 3;
@@ -90,7 +90,8 @@ internal class SupplierController : BaseController
                 {
                     Console.SetCursorPosition(column, row);
                 }
-                catch (System.IO.IOException) { }
+                catch (System.IO.IOException) 
+                { }
                 inputCnpj = Console.ReadLine() ?? "";
 
                 SupplierModel existing = null;

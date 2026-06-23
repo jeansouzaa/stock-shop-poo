@@ -7,7 +7,7 @@ using StockShop.Controllers.Base;
 
 namespace StockShop.Controllers;
 
-internal class ProductController : BaseController
+internal class ProductController : MainController
 {
     private const int CodeFieldRowOffset = 2;
     private const int DescriptionFieldRowOffset = 3;
