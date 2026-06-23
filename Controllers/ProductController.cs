@@ -325,4 +325,62 @@ internal class ProductController : MainController
             Console.ReadLine();
         }
     }
+
+    internal void ReportLowStockProducts()
+    {
+        this._screen.PrepareMainView("Relatório de Produtos com Estoque Baixo", 0, 0, 79, 24);
+
+        int row = 3;
+        this._screen.WriteFrame(2, row, "Código | Descrição           | Categoria     | Preço    | Estoque | Fornecedor");
+        this._screen.WriteFrame(2, row + 1, "------------------------------------------------------------------------------");
+        row += 2;
+
+        bool foundAny = false;
+
+        foreach (var product in _products)
+        {
+            if (product.QtyStock < 5)
+            {
+                foundAny = true;
+                if (row >= 22)
+                {
+                    this._screen.WriteFrame(2, row, "Pressione qualquer tecla para mostrar mais...");
+                    try
+                    {
+                        Console.ReadKey();
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        Console.ReadLine();
+                    }
+                    this._screen.PrepareMainView("Relatório de Produtos com Estoque Baixo", 0, 0, 79, 24);
+                    row = 3;
+                    this._screen.WriteFrame(2, row, "Código | Descrição           | Categoria     | Preço    | Estoque | Fornecedor");
+                    this._screen.WriteFrame(2, row + 1, "------------------------------------------------------------------------------");
+                    row += 2;
+                }
+
+                string supplierName = product.Supplier != null ? product.Supplier.Name : "N/A";
+                string line = $"{product.Code,-4} | {product.Description,-19} | {product.Category,-12} | {product.UnitaryPrice,-8:F2} | {product.QtyStock,-5} | {supplierName}";
+                this._screen.WriteFrame(2, row, line);
+                row++;
+            }
+        }
+
+        if (!foundAny)
+        {
+            this._screen.WriteFrame(2, row, "Nenhum produto com estoque baixo.");
+            row++;
+        }
+
+        this._screen.WriteFrame(2, row + 1, "Pressione qualquer tecla para voltar ao menu...");
+        try
+        {
+            Console.ReadKey();
+        }
+        catch (InvalidOperationException)
+        {
+            Console.ReadLine();
+        }
+    }
 }

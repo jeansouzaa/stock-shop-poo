@@ -60,6 +60,7 @@ internal class Program
             "4 - Relatórios de Produtos Movimentados   ",
             "5 - Relatórios de Produtos Cadastrados    ",
             "6 - Relatórios de Fornecedores Cadastrados",
+            "7 - Relatório de Produtos com Estoque Baixo",
             "0 - Sair                                  "
         };
     }
@@ -85,6 +86,9 @@ internal class Program
                 break;
             case "6":
                 _supplierController.ReportRegisteredSuppliers();
+                break;
+            case "7":
+                _productController.ReportLowStockProducts();
                 break;
             default:
                 ShowInvalidOptionWarning();
