@@ -142,7 +142,7 @@ internal class ProductMovementController : MainController
                     Console.SetCursorPosition(column, row);
                 }
 
-                if (product.QtyStock >= inputQty)
+                if (product.QtyStock > inputQty && typeMovement != TypeMovement.Saida)
                 {
                     break;
                 }
@@ -225,14 +225,7 @@ internal class ProductMovementController : MainController
                     response = this._screen.ToAsk("Confirma alteração (S/N): ", line, startColumn, endColumn);
                     if (response == "s" || response == "S")
                     {
-                        if (this._model.TypeMovement == TypeMovement.Saida)
-                        {
-                            this._model.Product.QtyStock -= this._model.QtyMovemented;
-                        }
-                        else
-                        {
-                            this._model.Product.QtyStock += this._model.QtyMovemented;
-                        }
+                        ChangeProductQty(originalProduct, this._model.TypeMovement);
 
                         _productMovements[this._position].MovementDate = this._model.MovementDate;
                         _productMovements[this._position].QtyMovemented = this._model.QtyMovemented;
@@ -272,7 +265,7 @@ internal class ProductMovementController : MainController
                     response = this._screen.ToAsk("Confirma cadastro (S/N): ", line, startColumn, endColumn);
                     if (response == "s" || response == "S")
                     {
-                        this._model.Product.QtyStock -= this._model.QtyMovemented;
+                        ChangeProductQty(this._model.Product, this._model.TypeMovement);
 
                         _productMovements.Add(
                             new ProductMovementModel(this._model.Code, this._model.MovementDate,
@@ -284,6 +277,18 @@ internal class ProductMovementController : MainController
                 {
                 }
             }
+        }
+    }
+
+    private void ChangeProductQty(ProductModel product, TypeMovement typeMovement)
+    {
+        if (typeMovement == TypeMovement.Saida)
+        {
+            product.QtyStock -= this._model.QtyMovemented;
+        }
+        else
+        {
+            product.QtyStock += this._model.QtyMovemented;
         }
     }
 

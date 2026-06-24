@@ -12,12 +12,10 @@ internal class ProductController : MainController
 {
     private const int CodeFieldRowOffset = 2;
     private const int DescriptionFieldRowOffset = 3;
-    private const int LegendFirstLineRowOffset = 4;
-    private const int LegendSecondLineRowOffset = 5;
-    private const int CategoryFieldRowOffset = 7;
-    private const int QtyStockFieldRowOffset = 8;
-    private const int PriceFieldRowOffset = 9;
-    private const int SupplierFieldRowOffset = 10;
+    private const int CategoryFieldRowOffset = 6;
+    private const int QtyStockFieldRowOffset = 7;
+    private const int PriceFieldRowOffset = 8;
+    private const int SupplierFieldRowOffset = 9;
 
     private ProductModel _model;
     private SupplierController _supplierController = new SupplierController(10, 5, new SupplierView());
@@ -27,12 +25,14 @@ internal class ProductController : MainController
     {
         this._model = new ProductModel();
 
-        this._fields.Add("Código                 : ");
-        this._fields.Add("Descrição              : ");
-        this._fields.Add("Categoria              : ");
-        this._fields.Add("Quantidade em Estoque  : ");
-        this._fields.Add("Preço                  : ");
-        this._fields.Add("Código do Fornecedor   : ");
+        this._fields.Add("Código                                : ");
+        this._fields.Add("Descrição                             : ");
+        this._fields.Add("0-Escolar, 1-Escritório, 2-Presente,   ");
+        this._fields.Add("3-Brinquedo, 4-Artesanato, 5-Papelaria ");
+        this._fields.Add("Categoria                             : ");
+        this._fields.Add("Quantidade em Estoque                 : ");
+        this._fields.Add("Preço                                 : ");
+        this._fields.Add("Código do Fornecedor                  : ");
 
         this._width = this._fields[0].Length + 2 + 30;
         this._heigth = this._fields.Count + 2 + 4;
@@ -52,15 +52,6 @@ internal class ProductController : MainController
         row++;
         for (int i = 0; i < _fields.Count; i++)
         {
-            if (i == 2)
-            {
-                _screen.WriteFrame(_column + 1, row, "0-Escolar, 1-Escritório,");
-                row++;
-                _screen.WriteFrame(_column + 1, row, "2-Presente, 3-Brinquedo,");
-                row++;
-                _screen.WriteFrame(_column + 1, row, "4-Artesanato, 5-Papelaria");
-                row++;
-            }
             _screen.WriteFrame(_column + 1, row, _fields[i]);
             row++;
         }

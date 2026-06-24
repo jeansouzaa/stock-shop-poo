@@ -54,14 +54,14 @@ internal class Program
     {
         return new List<string>
         {
-            "1 - Cadastrar Produto                     ",
-            "2 - Cadastrar Fornecedor                  ",
-            "3 - Movimentações de Produto              ",
-            "4 - Relatórios de Produtos Movimentados   ",
-            "5 - Relatórios de Produtos Cadastrados    ",
-            "6 - Relatórios de Fornecedores Cadastrados",
-            "7 - Relatório de Produtos com Estoque Baixo",
-            "0 - Sair                                  "
+            "1 - Cadastrar Produto                       ",
+            "2 - Cadastrar Fornecedor                    ",
+            "3 - Movimentações de Produto                ",
+            "4 - Relatórios de Produtos Movimentados     ",
+            "5 - Relatórios de Produtos Cadastrados      ",
+            "6 - Relatórios de Fornecedores Cadastrados  ",
+            "7 - Relatório de Produtos com Estoque Baixo ",
+            "0 - Sair                                    "
         };
     }
 
@@ -117,7 +117,7 @@ internal class Program
             Console.Clear();
         }
         catch (System.IO.IOException) { }
-        Console.WriteLine("Adeus, e obrigado pelos peixes");
+        Console.WriteLine("Sistema encerrado, até logo!");
     }
 }
 
