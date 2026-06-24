@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using StockShop.Models;
-using StockShop.Views.Base;
-using StockShop.Views;
 using StockShop.Controllers.Base;
+using StockShop.Models;
+using StockShop.Views;
+using StockShop.Views.Base;
 
 namespace StockShop.Controllers;
 
@@ -39,7 +39,7 @@ internal class SupplierController : MainController
     {
     }
 
-    public SupplierModel findSupplierByCNPJ(string cnpj)
+    public static SupplierModel FindSupplierByCNPJ(string cnpj)
     {
         SupplierModel supplier = null;
         for (int count = 0; count < _suppliers.Count; count++)
@@ -53,7 +53,7 @@ internal class SupplierController : MainController
         return supplier;
     }
 
-    public SupplierModel findSupplierByCode(int code)
+    public static SupplierModel FindSupplierByCode(int code)
     {
         SupplierModel supplier = null;
         for (int count = 0; count < _suppliers.Count; count++)
@@ -89,7 +89,7 @@ internal class SupplierController : MainController
                 {
                     Console.SetCursorPosition(column, row);
                 }
-                catch (System.IO.IOException) 
+                catch (System.IO.IOException)
                 { }
                 inputCnpj = Console.ReadLine() ?? "";
 
@@ -213,7 +213,7 @@ internal class SupplierController : MainController
         }
     }
 
-    public SupplierModel findSupplierByName(string name)
+    public static SupplierModel FindSupplierByName(string name)
     {
         SupplierModel supplier = null;
         for (int count = 0; count < _suppliers.Count; count++)
@@ -230,7 +230,7 @@ internal class SupplierController : MainController
     internal void ReportRegisteredSuppliers()
     {
         this._screen.PrepareMainView("Relatório de Fornecedores Cadastrados", 0, 0, 79, 24);
-        
+
         int row = 3;
         this._screen.WriteFrame(2, row, "Código | CNPJ                 | Nome                | Telefone");
         this._screen.WriteFrame(2, row + 1, "------------------------------------------------------------------------------");
@@ -268,7 +268,7 @@ internal class SupplierController : MainController
                 row++;
             }
         }
-        
+
         this._screen.WriteFrame(2, row + 1, "Pressione qualquer tecla para voltar ao menu...");
         try
         {

@@ -54,11 +54,11 @@ internal class ProductController : MainController
         {
             if (i == 2)
             {
-                _screen.WriteFrame(_column + 1, row, "(0-Escolar, 1-Escritório,");
+                _screen.WriteFrame(_column + 1, row, "0-Escolar, 1-Escritório,");
                 row++;
                 _screen.WriteFrame(_column + 1, row, "2-Presente, 3-Brinquedo,");
                 row++;
-                _screen.WriteFrame(_column + 1, row, "4-Artesanato, 5-Papelaria)");
+                _screen.WriteFrame(_column + 1, row, "4-Artesanato, 5-Papelaria");
                 row++;
             }
             _screen.WriteFrame(_column + 1, row, _fields[i]);
@@ -66,7 +66,7 @@ internal class ProductController : MainController
         }
     }
 
-    public ProductModel findProductByCode(string code)
+    public static ProductModel FindProductByCode(string code)
     {
         ProductModel product = null;
         int parsedCode;
@@ -143,7 +143,7 @@ internal class ProductController : MainController
                 int supplierCode;
                 if (int.TryParse(input, out supplierCode))
                 {
-                    supplier = this._supplierController.findSupplierByCode(supplierCode);
+                    supplier = SupplierController.FindSupplierByCode(supplierCode);
                     if (supplier != null)
                     {
                         break;

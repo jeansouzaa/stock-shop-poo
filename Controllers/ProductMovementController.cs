@@ -39,7 +39,7 @@ internal class ProductMovementController : MainController
     {
     }
 
-    public List<ProductMovementModel> findProductMovementsByProduct(ProductModel product)
+    public static List<ProductMovementModel> FindProductMovementsByProduct(ProductModel product)
     {
         List<ProductMovementModel> productMovements = new List<ProductMovementModel>();
         if (_productMovements != null && product != null)
@@ -108,7 +108,7 @@ internal class ProductMovementController : MainController
                     Console.SetCursorPosition(column, row);
                     string input = Console.ReadLine() ?? "";
 
-                    product = this._productController.findProductByCode(input);
+                    product = ProductController.FindProductByCode(input);
                     if (product != null)
                     {
                         break;
